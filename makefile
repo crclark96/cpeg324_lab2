@@ -10,5 +10,5 @@ shift_reg_tb.o: shift_reg_tb.vhdl
 	ghdl -a shift_reg_tb.vhdl
 
 shift_reg_tb: shift_reg_tb.o shift_reg.o dff.o
-	ghdl -e shift_reg_tb.vhdl
+	ghdl -e shift_reg_tb
 	ghdl -r shift_reg_tb --vcd=shift_reg_tb.vcd
