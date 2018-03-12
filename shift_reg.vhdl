@@ -12,7 +12,26 @@ entity shift_reg is
 end shift_reg;
 
 architecture behav of shift_reg is
+  component mux_4_1
+    generic(N : integer := 3
+            );
+    port(in0 : in std_logic_vector (N downto 0);
+         in1 : in std_logic_vector (N downto 0);
+         in2 : in std_logic_vector (N downto 0);
+         in3 : in std_logic_vector (N downto 0);
+         switch : in std_logic_vector (1 downto 0);
+         output : out std_logic_vector (N downto 0)
+         );
+  end component;
+  
+  signal hold, l_shf, r_shf, tmp, res : std_logic_vector (3 downto 0);
 begin
-  O <= I;  -- Wrong! You must replace it with your implementation.
+  mux0 : mux_4_1 port map(switch => sel,
+                          in0 => I,
+                          in1 => l_shf,
+                          in2 => r_shf,
+                          in3 => hold,
+                          output => tmp);
+  O <= tmp;
 end behav;
 
