@@ -23,7 +23,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity D_FF_VHDL is
+entity dff is
   port
     (
       clk : in std_logic;               -- clock
@@ -36,9 +36,9 @@ entity D_FF_VHDL is
 
       q : out std_logic                 -- output
       );
-end entity D_FF_VHDL;
+end entity dff;
 
-architecture Behavioral of D_FF_VHDL is
+architecture Behavioral of dff is
 begin
   process (clk) is
   begin
