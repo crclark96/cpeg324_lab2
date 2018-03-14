@@ -39,7 +39,10 @@ begin
     type pattern_array is array (natural range <>) of pattern_type;
     constant patterns : pattern_array :=
       (("0001", '1', '0', '1', "11", "0000"),
-       ("0001", '1', '1', '1', "00", "0001"));
+       ("0010", '1', '1', '1', "00", "0001"),
+       ("0011", '1', '0', '1', "00", "0001"),
+       ("0011", '1', '1', '1', "00", "0001")
+       );
   begin
 --  Check each pattern.
     for n in patterns'range loop
