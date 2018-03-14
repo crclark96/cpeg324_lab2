@@ -1,3 +1,5 @@
 *.o
 *.cf
 *.vcd
+mux_4_1_tb
+shift_reg_tb
