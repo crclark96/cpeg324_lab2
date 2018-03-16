@@ -63,10 +63,10 @@ begin
   end generate DFFS;
        
   mux0 : mux_4_1 port map(switch => sel,
-                          in0 => I,
+                          in0 => hold,
                           in1 => l_shf,
                           in2 => r_shf,
-                          in3 => hold,
+                          in3 => I,
                           output => tmp);
 
   process (hold, enable)
