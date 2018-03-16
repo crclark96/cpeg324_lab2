@@ -23,7 +23,12 @@ architecture behav of shift_reg_tb is
   signal sel                     : std_logic_vector(1 downto 0);
 begin
 --  Component instantiation.
-  shift_reg_0 : shift_reg port map (I => i, I_SHIFT_IN => i_shift_in, sel => sel, clock => clk, enable => enable, O => o);
+  shift_reg_0 : shift_reg port map (I => i,
+                                    I_SHIFT_IN => i_shift_in,
+                                    sel => sel,
+                                    clock => clk,
+                                    enable => enable,
+                                    O => o);
 
 --  This process does the real job.
   process
@@ -93,7 +98,7 @@ begin
       wait for 1 ns;
 --  Check the outputs.
       assert o = patterns(n).o
-        report "bad output value" severity error;
+        report "bad output value" severity error; 
     end loop;
     assert false report "end of test" severity note;
 --  Wait forever; this will finish the simulation.
