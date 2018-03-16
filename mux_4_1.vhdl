@@ -6,7 +6,7 @@
 -- Author     : Collin Clark  <collinclark@wifi-roaming-128-4-155-167.host.udel.edu>
 -- Company    : 
 -- Created    : 2018-03-11
--- Last update: 2018-03-13
+-- Last update: 2018-03-16
 -- Platform   : 
 -- Standard   : VHDL'93/02
 -------------------------------------------------------------------------------
@@ -46,7 +46,6 @@ architecture str of mux_4_1 is
   -----------------------------------------------------------------------------
   -- Internal signal declarations
   -----------------------------------------------------------------------------
-  signal zeros : std_logic_vector(N downto 0);
 
 begin  -- architecture str
 
