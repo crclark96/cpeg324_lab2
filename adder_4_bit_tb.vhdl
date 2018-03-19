@@ -13,29 +13,29 @@ architecture behavioral of adder_4_bit_tb is
          sub   : in  std_logic;
          s     : out std_logic_vector(3 downto 0);
          over  : out std_logic;
-         under : out std_logic;
+         under : out std_logic
          );
   end component;
 -- Specifies which entity is bound with the component
-  signal _a, _b, _s          : std_logic_vector(3 downto 0);
-  signal _sub, _over, _under : std_logic;
+  signal tb_a, tb_b, tb_s          : std_logic_vector(3 downto 0);
+  signal tb_sub, tb_over, tb_under : std_logic;
 begin
 -- Component instantiation
-  adder0 : adder_4_bit port map(a     => _a,
-                                b     => _b,
-                                s     => _s,
-                                sub   => _sub,
-                                over  => _over,
-                                under => _under);
+  adder0 : adder_4_bit port map(a     => tb_a,
+                                b     => tb_b,
+                                s     => tb_s,
+                                sub   => tb_sub,
+                                over  => tb_over,
+                                under => tb_under);
 -- This process does the real job
   process
     type pattern_type is record
 -- The inputs of the adder
-      _a, _b        : std_logic_vector(3 downto 0);
-      _sub          : std_logic;
+      tb_a, tb_b        : std_logic_vector(3 downto 0);
+      tb_sub          : std_logic;
 -- Expected outputs of adder
-      _s            : std_logic_vector(3 downto 0);
-      _over, _under : std_logic;
+      tb_s            : std_logic_vector(3 downto 0);
+      tb_over, tb_under : std_logic;
     end record;
 -- The patterns to apply
     type pattern_array is array (natural range <>) of pattern_type;
@@ -52,18 +52,18 @@ begin
 -- Check each pattern    
     for n in patterns'range loop
 -- Set the inputs      
-      _a <= patterns(n)._a;
-      _b <= patterns(n)._b;
-      _sub <= patterns(n)._sub;
+      tb_a <= patterns(n).tb_a;
+      tb_b <= patterns(n).tb_b;
+      tb_sub <= patterns(n).tb_sub;
 -- Wait for the result      
       wait for 1 ns;
 -- Check the output      
-      assert _s = patterns(n)._s
-        report "bad output value" severity error;
-      assert _over = patterns(n)._over
-        report "bad output value" severity error;
-      assert _under = patterns(n)._under
-        report "bad output value" severity error;
+      assert tb_s = patterns(n).tb_s
+        report "bad output value s" severity error;
+      assert tb_over = patterns(n).tb_over
+        report "bad output value o" severity error;
+      assert tb_under = patterns(n).tb_under
+        report "bad output value u" severity error;
     end loop;
     assert false report "end of test" severity note;
 -- Wait forever; this will finish the simulation
