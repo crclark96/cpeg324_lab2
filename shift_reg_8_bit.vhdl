@@ -62,11 +62,11 @@ begin  -- architecture str
   process (I_SHIFT_IN, O_0, O_1) is
   begin
     if (sel(1) = '1') then
-	I_SHIFT_IN_0 <= O_1(0);
-	I_SHIFT_IN_1 <= I_SHIFT_IN;
+	I_SHIFT_0 <= O_1(0);
+	I_SHIFT_1 <= I_SHIFT_IN;
     else
-	I_SHIFT_IN_0 <= I_SHIFT_IN;
-	I_SHIFT_IN_1 <= O_0(3);
+	I_SHIFT_0 <= I_SHIFT_IN;
+	I_SHIFT_1 <= O_0(3);
     end if;
   end process;
 
