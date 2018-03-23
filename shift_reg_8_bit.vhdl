@@ -59,13 +59,16 @@ architecture str of shift_reg_8_bit is
   
 begin  -- architecture str
 
-  if (sel(1) == '1') then
+  process (I_SHIFT_IN, O_0, O_1) is
+  begin
+    if (sel(1) = '1') then
 	I_SHIFT_IN_0 <= O_1(0);
 	I_SHIFT_IN_1 <= I_SHIFT_IN;
-  else
+    else
 	I_SHIFT_IN_0 <= I_SHIFT_IN;
 	I_SHIFT_IN_1 <= O_0(3);
-  end if;
+    end if;
+  end process;
 
   reg0: shift_reg port map(
     I => I(3 downto 0),
