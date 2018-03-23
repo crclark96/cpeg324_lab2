@@ -59,7 +59,7 @@ architecture behav of adder_4_bit is
 					sum => sig_bit,
 					cout => c4);
 
-	under <= c4;
+	under <= (not sig_bit and c4 and a(3) and newb3);
 	over <= (not a(3) and not b(3)) and sig_bit;
 	s(3) <= sig_bit; 
 
