@@ -24,9 +24,49 @@ for the designs they did not implement.
 
 ## Detailed Strategy
 
+Each system is implemented using only gate-level RTL. The 4 bit shift register
+contains four simple DFFs with a combinational circuit to calculate all
+of the inputs to the DFF block. The 8 bit shift register is simply two
+4 bit shift registers with the appropriate portions of bus signal mapping
+between the two. A simple mux determines the I_SHIFT_IN signal for the
+registers, which allows them to carry bits between the two.
+
+The 4 bit adder is a cascade of single bit full adders, with a possible bitwise
+inversion for one of the inputs to allow for subtraction. During subtraction,
+a single bit is carried in to create a two's complement representation of the
+input value. Overflow and underflow are determined by logical operations.
+Underflow can only occur when adding two negative numbers and creating a
+positive, while overflow is the opposite. Only the sign bits are used for these
+comparisons. 
+
 ## Results
 
+All of our components passed their testbenches.
+
+For the mux, we tested each possible selection and got the corresponding input.
+
+For the 4 bit shift register, we tested every combination of operations,
+including shifting left and right with both 0 and 1 as inputs, and overflowing
+past the register's capacity. We also tested our enable function and holding.
+
+For the 8 bit shift register, we tested every combination of operations,
+as well as shifting past the middle (between the two inner registers) and
+shifting values into both sides.
+
+For the adder, we tested every possible combination of addition and subtraction
+with positive and negative numbers, as well as one of each for overflow
+and underflow.
+
 ## Conclusion
+
+The most difficult part of the lab was that some of the behavior wasn't
+precisely specified, so some ambiguity with the design made it difficult
+to implement. Once we grasped all of the concepts, the lab was fairly
+straightforward and we were able to implement all of the components quickly
+and easily. Writing testbenches for every possible case is a bit tedious,
+though our fledgling knowledge of VHDL may have contributed to the tedium.
+
+Our project has no functional errors to the extent of our knowledge.
 
 ## Appendix I
 
