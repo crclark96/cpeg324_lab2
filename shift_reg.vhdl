@@ -15,28 +15,28 @@ architecture behav of shift_reg is
   component mux_4_1
     generic(N : integer := 3
             );
-    port(in0 : in std_logic_vector (N downto 0);
-         in1 : in std_logic_vector (N downto 0);
-         in2 : in std_logic_vector (N downto 0);
-         in3 : in std_logic_vector (N downto 0);
-         switch : in std_logic_vector (1 downto 0);
+    port(in0    : in  std_logic_vector (N downto 0);
+         in1    : in  std_logic_vector (N downto 0);
+         in2    : in  std_logic_vector (N downto 0);
+         in3    : in  std_logic_vector (N downto 0);
+         switch : in  std_logic_vector (1 downto 0);
          output : out std_logic_vector (N downto 0)
          );
   end component;
 
   component dff
-    port(clk : in std_logic;
-         rst : in std_logic;
-         pre : in std_logic;
-         ce : in std_logic;
-         d : in std_logic;
-         q : out std_logic
+    port(clk : in  std_logic;
+         rst : in  std_logic;
+         pre : in  std_logic;
+         ce  : in  std_logic;
+         d   : in  std_logic;
+         q   : out std_logic
          );
   end component;
-  
-  
+
+
   signal hold, l_shf, r_shf, tmp, res : std_logic_vector (3 downto 0);
-  
+
 begin
 
   l_shf(0) <= I_SHIFT_IN;
@@ -56,17 +56,17 @@ begin
     end loop;
   end process;
 
-  DFFS:
+  DFFS :
   for i in 0 to 3 generate
     DFFX : dff port map
       (clock, '0', '0', enable, res(i), hold(i));
   end generate DFFS;
-       
+
   mux0 : mux_4_1 port map(switch => sel,
-                          in0 => hold,
-                          in1 => l_shf,
-                          in2 => r_shf,
-                          in3 => I,
+                          in0    => hold,
+                          in1    => l_shf,
+                          in2    => r_shf,
+                          in3    => I,
                           output => tmp);
 
   process (hold, enable)
@@ -75,6 +75,6 @@ begin
       O(i) <= enable and hold(i);
     end loop;
   end process;
-  
+
 end behav;
 
