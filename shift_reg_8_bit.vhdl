@@ -87,8 +87,8 @@ begin  -- architecture str
     O => O_1
     );
 
-  O(7 downto 4) <= O_0;
-  O(3 downto 0) <= O_1;
+  O(7 downto 4) <= O_1;
+  O(3 downto 0) <= O_0;
   
 -----------------------------------------------------------------------------
 -- Component instantiations
