@@ -45,7 +45,7 @@ shift_reg_8_bit_tb.o: shift_reg_8_bit_tb.vhdl shift_reg_8_bit.o
 
 shift_reg_8_bit_tb: shift_reg_8_bit_tb.o
 	$(CC) -e shift_reg_8_bit_tb
-	$(CC) -r shift_reg_8_bit_tb --vcd=shift_reg_8_bit_tb
+	$(CC) -r shift_reg_8_bit_tb --vcd=shift_reg_8_bit_tb.vcd
 
 clean:
 	rm *.o *.vcd *.cf *_tb
