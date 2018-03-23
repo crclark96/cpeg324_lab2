@@ -60,7 +60,7 @@ architecture str of shift_reg_8_bit is
 begin  -- architecture str
 
   reg0: shift_reg port map(
-    I => I(0:3),
+    I => I(3 downto 0),
     sel => sel,
     clock => clk,
     enable => enable,
@@ -68,7 +68,7 @@ begin  -- architecture str
     O => O_0
     );
   reg1: shift_reg port map(
-    I => I(4:7),
+    I => I(7 downto 4),
     sel => sel,
     clock => clk,
     enable => enable,
