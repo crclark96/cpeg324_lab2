@@ -1,7 +1,6 @@
-EXEC = mux_4_1 shift_reg dff shift_reg_tb adder_4_bit_tb adder_4_bit full_adder
 CC = ghdl
 
-default: shift_reg_tb adder_4_bit_tb shift_8
+default: shift add shift_8
 
 add: adder_4_bit_tb
 
@@ -49,4 +48,4 @@ shift_reg_8_bit_tb: shift_reg_8_bit_tb.o
 	$(CC) -r shift_reg_8_bit_tb --vcd=shift_reg_8_bit_tb
 
 clean:
-	rm *.o *.vcd *.cf $(EXEC)
+	rm *.o *.vcd *.cf *_tb
