@@ -65,7 +65,7 @@ begin
        ("00000010",'1','1','1',"10","10000010"), --successfully shifts right and fills in '1'
        ("00001101",'1','0','0',"11","00000000"), -- 20 ns enable off
        ("00001101",'1','1','0',"11","00000000"), --enable off
-       ("00001101",'1','0','1',"11","00001010"), --outputs the loaded value '00001010'
+       ("00001101",'1','0','1',"11","10000010"), --outputs the loaded value '00001010'
        ("00001101",'1','1','1',"11","00001101"), --loads '00001101' when the clock rises and enable = '1'
        ("00001101",'0','0','0',"01","00000000"), --enable off
        ("00001101",'0','1','0',"01","00000000"), --25 ns enable off
@@ -73,16 +73,16 @@ begin
        ("00001101",'0','1','1',"01","00011010"), --successfully shifts left and fills in '0'
        ("00001101",'1','0','0',"01","00000000"), --enable off
        ("00001101",'1','1','0',"01","00000000"), --enable off
-       ("00001101",'1','0','1',"01","00001010"), --30 ns outputs the loaded value '00001010'
-       ("00001101",'1','1','1',"01","00000101"), --successfully shifts left and fills in '1'
+       ("00001101",'1','0','1',"01","00011010"), --30 ns outputs the loaded value '00001010'
+       ("00001101",'1','1','1',"01","00110101"), --successfully shifts left and fills in '1'
        ("00001101",'0','0','0',"10","00000000"), --enable off
        ("00001101",'0','1','0',"10","00000000"), --enable off
-       ("00001101",'0','0','1',"10","00000101"), --outputs the loaded value '00000101'
-       ("00001101",'0','1','1',"10","00000010"), --35 ns successfully shifts right and fills in '0'
+       ("00001101",'0','0','1',"10","00110101"), --outputs the loaded value '00000101'
+       ("00001101",'0','1','1',"10","00011010"), --35 ns successfully shifts right and fills in '0'
        ("00001101",'1','0','0',"10","00000000"), --enable off
        ("00001101",'1','1','0',"10","00000000"), --enable off
-       ("00001101",'1','0','1',"10","00000010"), --outputs the loaded value '00000010'
-       ("00001101",'1','1','1',"10","10000001")  --successfully shifts right and fills in '1'
+       ("00001101",'1','0','1',"10","00011010"), --outputs the loaded value '00000010'
+       ("00001101",'1','1','1',"10","10001101")  --successfully shifts right and fills in '1'
        );
   begin
 --  Check each pattern.
