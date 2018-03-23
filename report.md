@@ -37,7 +37,10 @@ a single bit is carried in to create a two's complement representation of the
 input value. Overflow and underflow are determined by logical operations.
 Underflow can only occur when adding two negative numbers and creating a
 positive, while overflow is the opposite. Only the sign bits are used for these
-comparisons. 
+comparisons. Underflow is not the signed bit of the result, and carry out,
+and the signed bits of the two inputs. Overflow is not the signed bit of
+the first input, anded with not the signed bit of the second input, the
+result of which is anded with the signed bit of the output.
 
 ## Results
 
@@ -73,5 +76,4 @@ Our project has no functional errors to the extent of our knowledge.
 ## Appendix II
 
 ## Appendix III
-
 
